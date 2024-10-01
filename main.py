@@ -1,5 +1,5 @@
 # Change this to control the amount of parking spots
-MAX_PARKING = 10
+MAX_PARKING = 5
 
 # Creating parking class with its attributes
 class ParkingLot:
@@ -50,7 +50,7 @@ def parking_menu():
 
 # Main function for UI
 def main():
-    parking_lot = ParkingLot(5) # Set the capacity of parking lot to appointed amount
+    parking_lot = ParkingLot(MAX_PARKING) # Set the capacity of parking lot to appointed amount
     while True:
         parking_menu()
         choice = input("\nEnter your choice (1-4): ")
