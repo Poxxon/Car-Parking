@@ -18,11 +18,16 @@ class ParkingLot:
 
     # Function to park a vehicle
     def park_car(self, plate_number):
+        # Checks to see if plate number already exists within the parking lot
+        if plate_number in self.parking_spots:
+            print(f"\nCar with license plate number: {plate_number} is already parked!")
+            return
+
         for index in range(self.capacity):
             if self.parking_spots[index] is None:
                 self.parking_spots[index] = plate_number
-                print(f"\nCar with plate number:{plate_number} parked in spot {index + 1}")
-            return
+                print(f"\nCar with plate number: {plate_number} parked in spot {index + 1}")
+                return
         
         print("\nSorry, the parking lot is full!")
 
@@ -37,7 +42,7 @@ class ParkingLot:
 
 # Function to display parking menu
 def parking_menu():
-    print("Parking Lot Management")
+    print("\nParking Lot Management")
     print("1. Display parking lot status")
     print("2. Park a car")
     print("3. Retrieve a car")
@@ -45,7 +50,7 @@ def parking_menu():
 
 # Main function for UI
 def main():
-    parking_lot = ParkingLot(MAX_PARKING) # Set the capacity of parking lot to appointed amount
+    parking_lot = ParkingLot(5) # Set the capacity of parking lot to appointed amount
     while True:
         parking_menu()
         choice = input("\nEnter your choice (1-4): ")
